@@ -1,0 +1,84 @@
+<div class="index-header">
+    <%= render "header" %>
+    <%= image_tag '20.jpg' %>
+</div>
+
+
+<div class="edit-title">
+    <h2 class="title">投稿の編集</h2>
+</div>
+
+<%= form_for @post do |f| %>
+    <div class="new-form">
+        <%= f.text_field :title, :size => 140, placeholder: "タイトル"%><br><br>
+        <%= f.text_field :category, :size => 140, placeholder: "カテゴリー"%><br><br>
+        <%= f.text_field :body, :size => 140, placeholder: "ひとこと"%><br><br>
+        <%= f.text_field :address, :size => 140, placeholder: "場所＊空白禁止"%>
+    </div>
+    <div class="map-btn-field">
+        <input type="button" value="場所を地図で表示" onclick="codeAddress()">
+    </div><br>
+    <div class="pic-field">
+        <%= f.label :写真1 %>
+        <%= f.file_field :image %><br><br>
+        <%= f.label :写真2 %>
+        <%= f.file_field :image2 %><br><br>
+        <%= f.label :写真3 %>
+        <%= f.file_field :image3 %><br><br>
+        <%= f.label :動画 %>
+        <%= f.file_field :video %>
+    </div><br>
+    <div class="new-submit">
+        <%= f.submit "投稿する" %>
+    </div>
+<% end %>
+
+    <div id="map"></div>
+
+        <style>
+            #map{
+                height: 400px;
+                width: 90%;
+                margin: 30px auto;
+            }
+        </style>
+
+        <script>
+        let map
+
+        function intiMap(){
+            geocoder = new google.maps.Geocoder()
+
+            map = new google.maps.Map(document.getElementById('map'),{
+                center: {lat: 43.220327, lng: 142.863474},
+                zoom: 2,
+            });
+        }
+
+        let geocoder
+
+        function codeAddress(){
+            let inputAddress = document.getElementById('post_address').value;
+
+            geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+                if (status == 'OK') {
+                    map.setCenter(results[0].geometry.location);
+                    map.setZoom(17);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                }else{
+                alert('該当する結果がありませんでした:' + status);
+                }
+            });
+        }
+
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=intiMap" async defer></script>
+</div>
+
+
+<footer>
+    <small>Copyright © 2022 Yui Takahashi All rights Reserved.</small>
+</footer>

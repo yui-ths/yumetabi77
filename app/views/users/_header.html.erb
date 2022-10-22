@@ -1,0 +1,13 @@
+<header>
+    <h1 class="header1"><%= link_to "yumetabi", top_posts_path %></h1>
+    <ul class="header-list">
+        <li><%= link_to "map", posts_path %>
+        <li><%= link_to "share", new_post_path %></li>
+        <li><%= link_to "darts", random2_posts_path %></li>
+        <% if user_signed_in? %>
+            <li><%= link_to "mypage", user_path(current_user.id) %>
+        <% else %>
+            <li><%= link_to "login", user_session_path %>
+        <% end %>
+    </ul>
+</header>

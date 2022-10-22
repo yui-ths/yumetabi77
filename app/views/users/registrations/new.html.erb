@@ -1,0 +1,41 @@
+<div class="sign-up-header">
+    <%= render "users/header" %>
+</div>
+
+<div class="users">
+<div class="signup-box">
+  <h2>Sign up</h2><br>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "mail address" %>
+    </div><br>
+
+    <div class="field">
+      <%= f.text_field :name, autofocus: true, placeholder: "name" %>
+    </div>
+
+    <div class="field">
+      <% if @minimum_password_length %>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "password (6文字以上)" %><br>
+    </div><br>
+
+    <div class="field">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "password confilm" %>
+    </div><br>
+
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %><br>
+
+  <%= render "users/shared/links" %>
+</div>
+</div>
+
+<footer>
+  <small>Copyright © 2022 Yui Takahashi All rights Reserved.</small>
+</footer>

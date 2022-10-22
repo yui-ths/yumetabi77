@@ -1,0 +1,78 @@
+<div class="top-header">
+
+<%= render "header.html.erb" %>
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <%= image_tag '15.jpg', class: "d-block w-100-1" %>
+            </div>
+            <div class="carousel-item">
+                <%= image_tag '17.jpg', class: "d-block w-100-1" %>
+            </div>
+            <div class="carousel-item">
+                <%= image_tag '11.jpg', class: "d-block w-100-1" %>
+            </div>
+            <div class="carousel-item">
+                <%= image_tag '12.jpg', class: "d-block w-100-1" %>
+            </div>
+            <div class="carousel-item">
+                <%= image_tag '14.jpg', class: "d-block w-100-1" %>
+            </div>
+        </div>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+
+<div class="concept">
+<br>
+<br>
+今まで心の中でぼんやりと思い描いていた<br>
+行きたいところ、やってみたいこと、夢見てきたこと<br>
+ぜんぶかたちにしてみよう。<br>
+<br>
+コロナとか、バイトとか、大学とか、就活とか、<br>
+とりあえず忘れてみて、<br>
+やりたいことをみんなでシェアしよう。<br>
+<br>
+知らない土地に行くことは、<br>
+まだ見ぬ感動に出会えるということ。<br>
+<br>
+言語の違う国に行くということは、<br>
+新しい価値観に出会えるということ。<br>
+<br>
+旅することはきっとあなたを<br>
+すてきなものにアップデートしてくれるはず。<br>
+<br>
+そうして作られた思い出は、これから生きていく中で、<br>
+きっと、必ず、あなたを助けてくれる。<br>
+<br>
+新しい自分に出会える<br>
+心ときめく旅をみつけにいこう。
+<br>
+<br>
+</div>
+
+<div class="top-botan">
+    <div class="botan-flex">
+        <%= link_to "世界地図へ", posts_path, class: "botan" %>
+        <%= link_to "新規投稿へ", new_post_path,class: "botan" %>
+        <%= link_to "ダーツの旅へ", random2_posts_path,class: "botan" %>
+        <% if user_signed_in? %>
+            <%= link_to "マイページへ", user_path(current_user.id),class: "botan" %>
+        <% end %>
+    </div>
+</div>
+
+<div class="top-footer">
+    <footer>
+        <small>Copyright © 2022 Yui Takahashi All rights Reserved.</small>
+    </footer>
+</div>

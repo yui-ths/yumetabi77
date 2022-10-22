@@ -1,0 +1,43 @@
+.edit-title{
+    width: 100%;
+    text-align: center;
+}
+.new-post-header{
+    background-image: image-url("toppic1.jpg");
+    height: 300px;
+}
+.new-post-header img{
+    height: 300px;
+    width: 100%;
+    position: relative;
+}
+.new-body{
+    padding-top: 50px;
+    background-color: #fffff4;
+}
+.new-title{
+    text-align: center;
+}
+.new-submit{
+    text-align: center;
+    font-weight: bold;
+}
+#map{
+    margin: 30px;
+    align-items: center;
+}
+input[type="button"]{
+    width:100px;
+    height:30px;
+    font-size:12px;
+    font-weight: bold;
+    background-color: #F9F790;
+}
+input[type="submit"]{
+    width:100px;
+    height:30px;
+    font-size:12px;
+    font-weight: bold;
+    background-color: #F9F790;
+}
+

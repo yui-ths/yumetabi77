@@ -1,0 +1,27 @@
+<div class="index-header">
+    <%= render "header" %>
+    <%= image_tag "4.jpg" %>
+</div>
+
+<br><br><h2 class="heading04">ダーツが当たりました！</h2>
+
+<div class="random">
+    <% @random.each do |post| %>
+
+        <%= image_tag post.image_url, width: '30%', height: '30%' if post.image? %>
+        <%= image_tag post.image2_url, width: '30%', height: '30%' if post.image2? %>
+        <%= image_tag post.image3_url, width: '30%', height: '30%' if post.image3? %>
+        <%= post.video %><br>
+        <div class="random-text">
+            <div class="title"><%= post.title %></div><br>
+            [<%= post.category %>]<br>
+            </b><%= post.body %><br>
+            <%= image_tag '地図マーカー.jpeg', width: '25px', height: '25px' %><%= post.address %>
+        </div>
+    <% end %>
+</div>
+
+<footer>
+    <small>Copyright © 2022 Yui Takahashi All rights Reserved.</small>
+</footer>
+

@@ -1,0 +1,33 @@
+.random2{
+    display: flex;
+    background-color: #fffff4;
+}
+.random3{
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    filter: grayscale(40%);
+    display: flex;
+    justify-content: center;
+    padding-left: 150px;
+}
+.random3 img{
+    animation:3s linear infinite rotation1;
+}
+.random5{
+    margin-top: 400px;
+    margin-left: 30px;
+}
+.ya{
+    width: 20%;
+    height: 20%;
+}
+.darts-text{
+    color: black;
+    text-decoration: underline black;
+    margin-left: 30px;
+}
+@keyframes rotation1{
+    0%{ transform:rotate(0);}
+    100%{ transform:rotate(360deg); }
+}

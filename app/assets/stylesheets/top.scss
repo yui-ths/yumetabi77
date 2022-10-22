@@ -1,0 +1,62 @@
+header {
+    height: 60px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+}
+#carouselExampleFade{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 1;
+}
+.top-body{
+    background-color: black;
+}
+.top-botan{
+    width: 100%;
+    top: 1420px;
+    left: 0;
+    padding: 30px;
+    margin-top: -60px;
+    position: absolute;
+    background-color: #fffff4;
+}
+.d-block.w-100-top{
+    height: 100vh;
+    image-rendering: -webkit-optimize-contrast;
+}
+@import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
+
+.concept{
+    background-color: #fffff4;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    position: absolute;
+    padding-top: 761px;
+    width: 100%;
+    font-family: 'Kaisei Decol', serif;
+}
+.top-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 50px;
+    background-color: #F9F790;
+    font-size: 15px;
+    color: #fff;
+    position: absolute;
+    top: 1520px;
+    left: 0;
+    width: 100%;
+} 
+.footer{
+    top: 200px;
+    left: 500px;
+}

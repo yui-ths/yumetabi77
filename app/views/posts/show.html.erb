@@ -1,0 +1,85 @@
+<div class="show-header">
+    <%= render "header" %>
+</div>
+
+<div class="show-body">
+    <div class="show-title">
+        <h2 class="title">投稿詳細</h2>
+    </div>
+
+    <div class="show">
+        <div class="show-image">
+            <%= image_tag @post.image_url, width: '30%', height: '30%' %>
+            <%= image_tag @post.image2_url, width: '30%', height: '30%' %>
+            <%= image_tag @post.image3_url, width: '30%', height: '30%' %>
+        </div>
+        <div class="show-text">
+            <div class="title"><P><%= @post.body %></p></div><br>
+            [<%= @post.category %>]<br>
+            <%= image_tag '地図マーカー.jpeg', width: '25px', height: '25px' %><%= @post.address %>
+        </div>
+            <% if user_signed_in? %>
+            <% if current_user.already_liked?(@post) %>
+                <%= link_to post_like_path(@post), method: :delete do %>
+                    <i class="fas fa-heart likes"></i><%= @post.likes.count %>
+                <% end %>
+            <% else %>
+                <%= link_to post_likes_path(@post), method: :post do %>
+                    <i class="far fa-heart non-likes"></i><%= @post.likes.count %>
+                <% end %>
+            <% end %>
+    </div>
+
+    <div id="map"></div>
+
+    <style>
+        #map{
+            height: 400px;
+            width: 90%;
+            margin: 0 auto;
+        }
+    </style>
+
+    <script>
+        let map
+
+        function initMap(){
+            geocoder = new google.maps.Geocoder()
+
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: {
+                    lat: <%= @post.latitude %> ,
+                    lng: <%= @post.longitude %>
+                },
+                zoom: 14,
+            });
+
+            (function () {
+                var contentString = "住所:<%= @post.address %>";
+
+                var marker = new google.maps.Marker({
+                    position: {
+                        lat: <%= @post.latitude %>,
+                        lng: <%= @post.longitude %>
+                    },
+                    map: map,
+                    title: contentString
+                });
+
+            })();
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap" async defer></script>
+
+
+    <div class="show-botan">
+        <%= button_to "編集する", edit_post_path(@post.id), method: :get, class:"show-botan2" %>
+        <%= button_to "削除する", post_path(@post.id), method: :delete, class:"show-botan2" %>
+    </div>
+</div>
+
+<footer>
+    <small>Copyright © 2022 Yui Takahashi All rights Reserved.</small>
+</footer>
+
+<% end %>

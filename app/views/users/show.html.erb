@@ -1,0 +1,62 @@
+<div class="user-show-header">
+    <%= render "users/header" %>
+    <%= image_tag '2.jpg' %>
+</div>
+
+<div class="USER-body">
+<div class="users-body">
+    <div class="users-icon">
+        <%= image_tag 'ひと.jpeg' %>
+    </div>
+    <div class="users-information">
+        <p><%= @user.name %></p>
+        <p><%= @user.email %></p>
+        <p><%= @user.profile %></p>
+        <% if current_user.id == @user.id %>
+            <%= link_to "編集する", edit_user_registration_path,class: "user-botan" %>
+        <% end %>
+    </div>
+</div>
+
+<div class="mypage-title">
+    <h2 class="title">ユーザーの投稿一覧</h2>
+</div>
+<div class="mypage-container"> 
+<% @user.posts.each do |t| %>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <% if t.image? %>
+                <%= link_to post_path(t.id) do %>
+                    <%= image_tag t.image_url, class: "d-block w-100" %>
+                <% end %>
+            <% else %>
+                <%= image_tag 'noimage.png', class: "d-block w-100" %>
+            <% end %>
+        </div>
+        <div class="carousel-item">
+            <% if t.image2? %>
+                <%= link_to post_path(t.id) do %>
+                    <%= image_tag t.image2_url, class: "d-block w-100" %>
+                <% end %>
+            <% else %>
+                <%= image_tag 'noimage.png', class: "d-block w-100" %>
+            <% end %>            
+        </div>
+        <div class="carousel-item">
+            <% if t.image3? %>
+                <%= link_to post_path(t.id) do %>
+                    <%= image_tag t.image3_url, class: "d-block w-100" %>
+                <% end %>
+            <% else %>
+                <%= image_tag 'noimage.png', class: "d-block w-100" %>
+            <% end %>
+        </div>  
+    </div>
+</div>  
+<% end %>
+</div>
+
+<footer>
+    <small>Copyright © 2022 Yui Takahashi All rights Reserved.</small>
+</footer>

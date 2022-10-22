@@ -1,0 +1,140 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+header {
+    height: 60px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.user-show-header{
+    height: 300px;
+}
+.user-show-header img{
+    height: 300px;
+    width: 100%;
+    position: relative;
+}
+.users{
+    text-align: center;
+    padding: 250px;
+    background-size: cover;
+    filter: opacity(95%);
+    margin: auto;
+    background-image: url("Signup.jpg");
+}
+.user-botan{
+    color: black;
+}
+.USER-body{
+    background: #fffff4;
+}
+.users-body{
+    height: 50px;
+    align-items: center;
+    display: flex;
+    margin-top: 180px;
+    justify-content: center;
+    text-align: center;
+}
+.users-information{
+    text-align: center;
+    justify-content: center;
+    margin: 20px;
+}
+.mypage-title{
+    padding-top: 165px;
+    text-align: center;
+}
+.mypage-container{
+    padding-top: 50px;
+}
+.title-container{
+    width: 100%;
+}
+.title{
+    position: relative;
+    display: inline-block;
+    height: 64px;
+    margin-left: 30px;
+    padding: 1rem 2rem 1rem 3rem;
+    color: black;
+    background: #F9F790;
+    font-family: 'Kaisei Decol', serif;
+}
+.title:before{
+    position: absolute;
+    top: 0;
+    left: -30px;
+    content: '';
+    border-width: 32px 30px 32px 0;
+    border-style: solid;
+    border-color: transparent #F9F790 transparent transparent;
+}
+.title:after{
+    position: absolute;
+    top: calc(50% - 7px);
+    left: -10px;
+    width: 14px;
+    height: 14px;
+    content: '';
+    border-radius: 50%;
+    background: #fff;
+}
+.like{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.login{
+    background-image: url("himawari.jpg");
+    text-align: center;
+    padding: 250px;
+    background-size: cover;
+    filter: opacity(75%);
+}
+.login-box{
+    background-color: #fff;
+    width: 30%;
+    padding: 10px;
+    margin: 0 auto;
+    line-height: 30px;
+}
+.signup-box{
+    background-color: #fff;
+    width: 30%;
+    padding: 10px;
+    margin: 0 auto;
+    line-height: 15px;
+}
+.password-again{
+    text-align: center;
+    padding: 250px;
+    background-size: cover;
+    filter: opacity(95%);
+    margin: auto;
+    background-image: url("password-again.jpg");
+}
+.password-again-box{
+    background-color: #fff;
+    width: 45%;
+    padding: 10px;
+    margin: 0 auto;
+    line-height: 25px;
+}
+.edit-user-container{
+    text-align: center;
+    background-color: #fffff4;
+    padding: 20px;
+}
+.edit-user-container2{
+    width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    padding-left: 40px;
+}
+.edit-user-container input[type="email"]{
+    width: 30%;
+}

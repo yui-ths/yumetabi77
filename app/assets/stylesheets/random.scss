@@ -1,0 +1,48 @@
+header {
+    height: 60px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.random{
+    text-align: center;
+    padding-top: 30px;
+    background-color: #fffff4;; 
+}
+.random img{
+    border-radius: 15px;
+}
+.random-text{
+    line-height: 30px;
+    margin: 20px;
+    width: 100%;
+}
+.heading04 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 26px;
+	text-align: center;
+}
+
+.heading04::before,
+.heading04::after {
+	content: '';
+	width: 3px;
+	height: 40px;
+	background-color: #F9F790;
+}
+
+.heading04::before {
+	margin-right: 30px;
+	transform: rotate(-35deg)
+}
+.heading04::after {
+	margin-left: 30px;
+	transform: rotate(35deg)
+}
+.a{
+    font-family: 'Kaisei Decol', serif;
+}

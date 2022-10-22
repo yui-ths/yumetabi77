@@ -1,0 +1,60 @@
+<div class="user-show-header">
+    <%= render "users/header" %>
+    <%= image_tag '7.jpg' %>
+</div>
+
+<div class="edit-user-container">
+  <h2 class="title">ユーザー情報の編集</h2><br>
+
+    <br><%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, autocomplecate: "name", size:48 %>
+      </div><br>
+
+      <div class="field">
+        <%= f.label :profile %>
+        <%= f.text_area :profile, autofocus: true, size: "50×20" %>
+      </div><br>
+
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div><br>
+
+  <div class="edit-user-container2">
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password %> edit
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上" %> (変更しない場合は空白で)
+        <% if @minimum_password_length %>
+        <% end %>
+      </div><br>
+
+      <div class="field">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>(変更しない場合は空白で)
+      </div><br>
+
+      <div class="field">
+        <%= f.label :current_password %> 
+        <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "*必須" %>
+      </div><br>
+  </div>
+
+      <div class="actions">
+        <%= f.submit "Update" %>
+      </div>
+    <% end %><br>
+    <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %><br>
+    <%= button_to "アカウントの消去", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+    <%= link_to "Back", :back %>
+</div>
+
+<footer>
+    <small>Copyright © 2022 Yui Takahashi All rights Reserved.</small>
+</footer>

@@ -1,0 +1,95 @@
+<div class="index-header">
+    <%= render "header" %>
+    <%= image_tag '6.jpg' %>
+</div>
+
+<div class="index-body">
+
+<div class="title-index">
+    <h2 class="title">投稿一覧</h2>
+</div>
+<div id="map" class="index-map"></div>
+<style>
+    #map{
+        height: 500px;
+        width: 90%;
+        margin: 0 auto;
+    }
+</style>
+
+<script>
+let map
+
+function initMap(){
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 40.7828, lng:-73.9653},
+    zoom: 6,
+  });
+
+  marker = new google.maps.Marker({
+    position:  {lat: 40.7828, lng:-73.9653},
+    map: map
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYij9JMeLoFu8MpTP5HZYMBuKHNkxd4wY
+&callback=initMap" async defer></script>
+
+<div class="search">
+        <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+            <%= text_field_tag :search %>
+            <input type="submit" value="&#xf002; 投稿を検索" class="fas">
+        <% end %><br>
+</div>
+
+<div class="posts-container"> 
+<% @posts.each do |t| %>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <% if t.image? %>
+                <%= link_to post_path(t.id) do %>
+                    <%= image_tag t.image_url, class: "d-block w-100" %>
+                <% end %>
+            <% else %>
+                <%= image_tag 'noimage.png', class: "d-block w-100" %>
+            <% end %>
+        </div>
+        <div class="carousel-item">
+            <% if t.image2? %>
+                <%= link_to post_path(t.id) do %>
+                    <%= image_tag t.image2_url, class: "d-block w-100" %>
+                <% end %>
+            <% else %>
+                <%= image_tag 'noimage.png', class: "d-block w-100" %>
+            <% end %>            
+        </div>
+        <div class="carousel-item">
+            <% if t.image3? %>
+                <%= link_to post_path(t.id) do %>
+                    <%= image_tag t.image3_url, class: "d-block w-100" %>
+                <% end %>
+            <% else %>
+                <%= image_tag 'noimage.png', class: "d-block w-100" %>
+            <% end %>
+        </div>  
+    </div>
+</div>  
+<% end %>
+</div>
+
+<div class="botan-flex">
+    <%= link_to "ダーツの旅へ", random2_posts_path,class: "botan" %>
+    <%= link_to "新規投稿へ", new_post_path,class: "botan" %>
+    <% if user_signed_in? %>
+    <%= link_to "マイページへ", user_path(current_user.id),class: "botan" %>
+</div>
+
+<% end %>
+
+</div>
+<footer>
+    <small>Copyright © 2022 Yui Takahashi All rights Reserved.</small>
+</footer>

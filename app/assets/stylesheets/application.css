@@ -1,0 +1,170 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+*{
+    padding: 0;
+    margin: 0;
+}
+header {
+    height: 60px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+header a {
+    color: white; 
+    text-decoration: none; 
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+header a:hover{
+    color: white;
+}
+header a::after {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: white;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+header a:hover::after {
+    bottom: -4px;
+    opacity: 1;
+    visibility: visible;
+    color: white!important;
+}
+header h1 {
+    color: white;
+    margin-left: 20px;
+}
+.header-list {
+    display: flex;
+    align-items: center;
+}
+header ul {
+    display: flex;
+}
+header li {
+    list-style: none;
+    margin-right: 40px;
+}
+post-container li {
+    display: flex
+}
+.mypage-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+#carouselExampleIndicators.carousel.slide.pointer-event{
+    width: 25%;
+    padding: 2px;
+}
+.d-block.w-100{
+    width: 100%;
+    height: 330px!important;
+    object-fit: cover;
+}
+.pic-field{
+    text-align: center;
+}
+.new-form{
+    text-align:center;
+    padding:20px 0;
+}
+.new-post{
+    text-align: center;
+}
+body:before{
+    content:'';
+    height:100%;
+    display:inline-block;
+    vertical-align:middle;
+}
+.map-btn-field{
+    text-align: center;
+}
+.btn{
+    text-align: center;
+}
+.btn:hover{
+    border: 1.6rem solid white;
+}
+.botan{
+    position: relative;
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    font-size: 24px;
+    line-height: 30px;
+    transition: .4s;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.botan:hover{
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+.botan::after{
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #F9F790;
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform .5s;
+    color: #F9F790;
+    border-bottom: 3px solid #F9F790;
+}
+.botan:hover::after{
+    transform-origin: left top;
+    transform: scale(1, 1);
+    color:#F9F790;
+    border-bottom: 3px solid #F9F790;
+}
+.title{
+    font-size: 20px;
+    font-weight: bolder;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 50px;
+    background-color: #F9F790;
+    font-size: 15px;
+    color: black;
+}
+.body{
+    background: color #fffff4;
+}
+a{
+    font-family: 'Kaisei Decol', serif;
+}
